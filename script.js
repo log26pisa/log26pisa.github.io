@@ -18,17 +18,31 @@ resizeCanvas();
 let mouse = {
     x: null,
     y: null,
-    radius: (canvas.height / 100) * (canvas.width / 100)
-}
+    prevX: null,
+    prevY: null,
+    radius: (canvas.height / 100) * (canvas.width / 100),
+    changed: false
+};
 
 window.addEventListener('mousemove', (event) => {
+    // store previous coords
+    mouse.prevX = mouse.x;
+    mouse.prevY = mouse.y;
+
+    // update current coords
     mouse.x = event.x;
     mouse.y = event.y;
+
+    // mark change if coords differ from previous
+    mouse.changed = (mouse.prevX !== mouse.x) || (mouse.prevY !== mouse.y);
 });
 
 window.addEventListener('mouseout', () => {
+    mouse.prevX = undefined;
+    mouse.prevY = undefined;
     mouse.x = undefined;
     mouse.y = undefined;
+    mouse.changed = false;
 });
 
 // Particle class
@@ -52,7 +66,11 @@ class Particle {
 
     // Check particle position, check mouse position, move the particle, draw the particle
     update() {
-        // checks if particle is still within canvas
+        // move particle
+        this.x += this.directionX;
+        this.y += this.directionY;
+
+        // checks if particle is still within canvas, bouncing logic
         if (this.x > canvas.width || this.x < 0) {
             this.directionX = -this.directionX;
         }
@@ -61,28 +79,36 @@ class Particle {
         }
 
         // check collision detection - mouse position / particle position
-        let dx = mouse.x - this.x;
-        let dy = mouse.y - this.y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < mouse.radius + this.size) {
-            if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
-                this.x += 2;
-            }
-            if (mouse.x > this.x && this.x > this.size * 10) {
-                this.x -= 2;
-            }
-            if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
-                this.y += 2;
-            }
-            if (mouse.y > this.y && this.y > this.size * 10) {
-                this.y -= 2;
+        if (mouse.x !== null) {
+            let dx = this.x - mouse.x;
+            let dy = this.y - mouse.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            // tolerance to make movement feel more natural
+            const tolerance = 30; // pixels of soft range around mouse radius
+            const effectiveRadius = mouse.radius + this.size + tolerance;
+
+            if (distance < effectiveRadius && distance > 0) {
+                // push strength proportional to proximity (0..1)
+                let push = 1 - (distance / effectiveRadius);
+                // soften and randomize the push a bit for natural look
+                const maxForce = 3; // max displacement per frame
+                const jitter = (Math.random() - 0.5) * 0.8;
+                const force = push * maxForce + jitter;
+
+                // normalize direction from mouse to particle and apply force away from mouse
+                this.x += (dx / distance) * force;
+                this.y += (dy / distance) * force;
+
+                // optional small damping so particles don't teleport too far
+                // keep particles away from immediate screen edges
+                if (this.x > canvas.width - this.size) this.x = canvas.width - this.size;
+                if (this.x < this.size) this.x = this.size;
+                if (this.y > canvas.height - this.size) this.y = canvas.height - this.size;
+                if (this.y < this.size) this.y = this.size;
             }
         }
-        
-        // move particle
-        this.x += this.directionX;
-        this.y += this.directionY;
-        
+
         // draw particle
         this.draw();
     }
@@ -111,7 +137,7 @@ function connect() {
         for (let b = a; b < particlesArray.length; b++) {
             let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + 
                            ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-            if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+            if (distance < (canvas.width / 5) * (canvas.height / 5)) {
                 opacityValue = 1 - (distance / 20000);
                 if(opacityValue < 0) opacityValue = 0;
                 ctx.strokeStyle = 'rgba(88, 166, 255,' + opacityValue + ')';
