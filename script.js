@@ -89,7 +89,7 @@ class Particle {
             let distance = Math.sqrt(dx * dx + dy * dy);
 
             // tolerance to make movement feel more natural
-            const tolerance = 30; // pixels of soft range around mouse radius
+            const tolerance = 50; // pixels of soft range around mouse radius
             const effectiveRadius = mouse.radius + this.size + tolerance;
 
             if (distance < effectiveRadius && distance > 0) {
@@ -112,7 +112,6 @@ class Particle {
                 if (this.y < this.size) this.y = this.size;
             }
         }
-
         // draw particle
         this.draw();
     }
