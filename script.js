@@ -2,11 +2,15 @@ const canvas = document.getElementById('background-canvas');
 const ctx = canvas.getContext('2d');
 
 let particlesArray;
+let cardElements = document.querySelectorAll('.card');
+let obstacles = [];
 
 // resizing
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    // ensure elements are re-selected if DOM changes (though here it's static)
+    cardElements = document.querySelectorAll('.card');
 }
 window.addEventListener('resize', () => {
     resizeCanvas();
@@ -20,7 +24,7 @@ let mouse = {
     y: null,
     prevX: null,
     prevY: null,
-    radius: (canvas.height / 100) * (canvas.width / 100),
+    radius: (canvas.height / 100 + canvas.width / 100) * 8, // Linear scaling roughly matching previous visual on 1080p
     changed: false
 };
 
@@ -122,8 +126,8 @@ function init() {
         let size = (Math.random() * 2) + 1;
         let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
         let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-        let directionX = (Math.random() * 2) - 1;
-        let directionY = (Math.random() * 2) - 1;
+        let directionX = (Math.random() * 0.4) - 0.2;
+        let directionY = (Math.random() * 0.4) - 0.2;
         let color = '#58a6ff';
 
         particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
