@@ -103,14 +103,65 @@ body {
 }
 
 /* Location & Date */
-.location-date .highlight {
-    font-size: 1.4rem;
+.location-date {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.info-icon {
+    font-size: 2rem;
+    line-height: 1;
+    background: rgba(88, 166, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+}
+
+.info-content h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #8b949e;
+    margin-bottom: 4px;
     font-weight: 600;
+}
+
+.info-content .date,
+.info-content .venue {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+
+.info-content .sub-venue {
+    font-size: 0.95rem;
+    color: #8b949e;
     margin-bottom: 5px;
 }
-.location-date .date {
-    font-size: 1.2rem;
-    color: #8b949e;
+
+.map-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.map-link:hover {
+    text-decoration: underline;
 }
 
 /* Call for Papers */
@@ -133,6 +184,16 @@ body {
 }
 
 /* Schedule */
+.schedule-overview p {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.schedule-overview strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
 .schedule-item {
     display: flex;
     justify-content: flex-start;
