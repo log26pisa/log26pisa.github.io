@@ -305,7 +305,7 @@ footer {
 
 /* add css for logo image */
 .logo-img {
-    width: 350px;
+    width: 50%;
     height: auto;
     margin-bottom: 20px;
     /* center the logo */
