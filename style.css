@@ -312,4 +312,12 @@ footer {
     display: block;
     margin-left: auto;
     margin-right: auto;
+} 
+
+
+/* style the links in the intro text */
+.intro-text a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
 }
