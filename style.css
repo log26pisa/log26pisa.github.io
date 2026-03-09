@@ -91,6 +91,15 @@ body {
     color: var(--accent-color);
 }
 
+.card a:not(.organizer),
+.card a:not(.organizer):visited {
+    color: var(--accent-color);
+}
+
+.card a:not(.organizer):hover {
+    text-decoration: underline;
+}
+
 .info-grid {
     display: grid;
     grid-template-columns: 1fr;
