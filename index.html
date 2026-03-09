@@ -85,7 +85,37 @@
             <div class="card important-dates">
                 <h2>📅 Important Dates</h2>
                 <ul>
-                    <li><strong>Submission Deadline:</strong> April 21, 2026</li>
+                    <li><strong>Submission Deadline:</strong> April 20, 2026 <span id="countdown-timer" style="font-family: 'Courier New', Courier, monospace;"></span></li>
+    <script>
+  // Set the date we're counting down to
+  const countDownDate = new Date("April 20, 2026 23:59:00").getTime();
+
+  // Update the count down every 1 second
+  const x = setInterval(function() {
+
+    // Get today's date and time
+    const now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    const distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the element with id="countdown-timer"
+    document.getElementById("countdown-timer").innerHTML = 
+      "("+ days + "d " + hours + "h " + minutes + "m " + seconds + "s)";
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("countdown-timer").innerHTML = "(SUBMISSIONS CLOSED)";
+    }
+  }, 1000);
+</script>
                     <li><strong>Final Decision:</strong> May 1, 2026</li>
                     <li><strong>Registration Deadline:</strong> May 22, 2026</li>
                 </ul>
