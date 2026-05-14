@@ -95,7 +95,7 @@
             <div class="card important-dates">
                 <h2>📅 Important Dates</h2>
                 <ul>
-                    <li><strong>Extended Submission Deadline:</strong> May 10, 2026 <span id="countdown-timer" style="font-family: 'Courier New', Courier, monospace;"></span></li>
+                    <li><strike><strong>Extended Submission Deadline:</strong> May 10, 2026 <span id="countdown-timer" style="font-family: 'Courier New', Courier, monospace;"></span></strike></li>
     <script>
   // Set the date we're counting down to
   const countDownDate = new Date("May 10, 2026 23:59:00").getTime();
@@ -150,29 +150,92 @@
         </section>
 
         <section class="card program-schedule">
-            <!-- <h2>📅 Program Schedule</h2>
-            <div class="schedule-item">
-                <span class="time">09:00 AM</span>
-                <span class="event">Keynote: The Age of Observability</span>
-            </div>
-            <div class="schedule-item">
-                <span class="time">10:30 AM</span>
-                <span class="event">Panel: Security in Logs</span>
-            </div>
-            <div class="schedule-item">
-                <span class="time">01:00 PM</span>
-                <span class="event">Workshop: Advanced Grafana</span>
-            </div>
-            <div class="schedule-item">
-                <span class="time">04:00 PM</span>
-                <span class="event">Networking Mixer</span>
-            </div> -->
-
             <h2>📅 Program Schedule</h2>
-            <div class="schedule-overview">
-                <p>The event will <strong>start on June 9th at 3:00 PM</strong> and <strong>end on June 11th at 1:00
-                        PM</strong>.</p>
-                <p>Detailed program coming soon. Stay tuned for updates!</p>
+            <div class="schedule-table-wrap" role="region" aria-label="Program schedule for June 2026" tabindex="0">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th class="month-spacer" aria-hidden="true"></th>
+                            <th class="schedule-month" colspan="3">June 2026</th>
+                        </tr>
+                        <tr>
+                            <th class="time-heading" scope="col">Time</th>
+                            <th scope="col">Tue 9</th>
+                            <th scope="col">Wed 10</th>
+                            <th scope="col">Thu 11</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">9.30 - 10.00</th>
+                            <td class="empty" rowspan="7"></td>
+                            <td class="session speaker">Speaker 4</td>
+                            <td class="session invited" rowspan="2">Invited 3</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10.00 - 10.30</th>
+                            <td class="session speaker">Speaker 5</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10.30 - 11.00</th>
+                            <td class="session break">Coffee Break</td>
+                            <td class="session break">Coffee Break</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">11.00 - 11.30</th>
+                            <td class="session invited" rowspan="2">Invited 2</td>
+                            <td class="session panel" rowspan="3">Panel Discussion</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">11.30 - 12.00</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">12.00 - 12.30</th>
+                            <td class="session speaker">Speaker 6</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">12.30 - 13.00</th>
+                            <td class="session lunch" rowspan="2">Lunch</td>
+                            <td class="session closing">Closing Remarks</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">13.00 - 14.00</th>
+                            <td class="session registration">Registration</td>
+                            <td class="empty" rowspan="8"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">14.00 - 14.30</th>
+                            <td class="session welcome">Welcome Talk</td>
+                            <td class="session poster" rowspan="3">Poster Session</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">14.30 - 15.00</th>
+                            <td class="session speaker">Speaker 1</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">15.00 - 15.30</th>
+                            <td class="session speaker">Speaker 2</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">15.30 - 16.00</th>
+                            <td class="session break">Coffee Break</td>
+                            <td class="session break">Coffee Break</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">16.00 - 16.30</th>
+                            <td class="session invited" rowspan="2">Invited 1</td>
+                            <td class="session poster" rowspan="2">Poster Session</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">16.30 - 17.00</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">17.00 - 17.30</th>
+                            <td class="session speaker">Speaker 3</td>
+                            <td class="session speaker">Speaker 7</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
         </section>
