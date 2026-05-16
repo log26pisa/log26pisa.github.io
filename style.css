@@ -272,8 +272,14 @@ body {
     white-space: nowrap;
 }
 
+/* 1. Set a fixed height on the rows themselves */
+.schedule-table tbody tr {
+    height: 50px; 
+}
+
+/* 2. Remove the height from td and let them expand naturally */
 .schedule-table td {
-    height: 64px;
+    /* height: 64px; */
     color: var(--text-color);
     font-weight: 600;
 }
