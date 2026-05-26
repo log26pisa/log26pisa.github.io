@@ -272,12 +272,10 @@ body {
     white-space: nowrap;
 }
 
-/* 1. Set a fixed height on the rows themselves */
 .schedule-table tbody tr {
     height: 50px; 
 }
 
-/* 2. Remove the height from td and let them expand naturally */
 .schedule-table td {
     /* height: 64px; */
     color: var(--text-color);
@@ -450,11 +448,10 @@ footer {
 
 
 /* Sponsors Section */
-/* Sponsors Layout (Standard Dark Card Mode) */
 .sponsor-logos {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; /* This centers items relative to each other */
     gap: 40px;
     flex-wrap: wrap;
     padding: 15px 0 5px;
@@ -466,32 +463,13 @@ footer {
     align-items: center;
 }
 
-/* Individual White Badges for clean logo visibility */
-.sponsor-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    padding: 15px 0 5px;
-}
-
-.sponsor-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Identical explicit sizing for both container boxes */
 .logo-badge {
     background-color: #ffffff;
-    width: 260px;          /* Forces identical visual width */
-    height: 90px;          /* Forces identical visual height */
+    padding: 20px 30px;
     border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;         /* Uniform safe-zone perimeter */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     transition: transform 0.2s ease;
 }
@@ -500,35 +478,35 @@ footer {
     transform: translateY(-2px);
 }
 
-/* Default boundaries for standard images */
 .logo-badge img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 190px;
+    max-height: 55px;
     width: auto;
     height: auto;
     object-fit: contain;
 }
 
-/* Makes ONLY the specific LoG image layout smaller inside its white box */
-.logo-badge img.smaller-logo {
-    max-height: 80%;
+.logo-badge img.list-logo {
+    max-height: 38px;  /* Uniformly downsizes the height of this specific image */
+    max-width: 130px;  /* Uniformly downsizes the width of this specific image */
 }
 
-/* Responsive adjustments for smaller displays */
 @media (max-width: 768px) {
     .sponsor-logos {
-        gap: 20px;
+        gap: 25px;
     }
     
     .logo-badge {
-        width: 180px;
-        height: 70px;
+        padding: 12px 20px;
+    }
+    
+    .logo-badge img {
+        max-width: 140px;
+        max-height: 42px;
     }
 
-    .logo-badge img.smaller-logo {
-        max-height: 80%;
+    .logo-badge img.list-logo {
+        max-height: 28px;
+        max-width: 95px;
     }
 }
-
-
-
