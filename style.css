@@ -465,13 +465,14 @@ footer {
 
 .logo-badge {
     background-color: #ffffff;
-    padding: 20px 30px;
+    padding: 15px 20px 10px 20px; /*top, right, bottom, left*/
     border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     transition: transform 0.2s ease;
+    height:100px;
 }
 
 .logo-badge:hover {
@@ -480,15 +481,17 @@ footer {
 
 .logo-badge img {
     max-width: 190px;
-    max-height: 55px;
+    max-height: 155px;
     width: auto;
     height: auto;
     object-fit: contain;
 }
 
-.logo-badge img.list-logo {
-    max-height: 38px;  /* Uniformly downsizes the height of this specific image */
-    max-width: 130px;  /* Uniformly downsizes the width of this specific image */
+/* Target the ION logo inside the white box without changing the box size */
+.smaller-badge img {
+    height: 80px !important;  /* Change this value to adjust the size of the ION logo */
+    max-height: 100%;
+    width: auto;
 }
 
 @media (max-width: 768px) {
@@ -505,8 +508,9 @@ footer {
         max-height: 42px;
     }
 
-    .logo-badge img.list-logo {
-        max-height: 28px;
-        max-width: 95px;
+    .logo-badge ion Logo {
+        max-width: 14px;
+        max-height: 42px;
     }
+
 }
