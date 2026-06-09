@@ -342,6 +342,43 @@ body {
     }
 }
 
+/* Poster Sessions */
+.poster-sessions {
+    align-items: start;
+}
+
+.poster-session .poster-meta {
+    color: #8b949e;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.poster-list {
+    list-style: decimal;
+    padding-left: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.poster-list li {
+    font-size: 0.92rem;
+    line-height: 1.4;
+    color: #c9d1d9;
+    padding-left: 4px;
+}
+
+.poster-list li::marker {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.poster-author {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
 /* Organizers */
 .organizer-list {
     display: grid;
